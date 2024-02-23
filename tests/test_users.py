@@ -59,7 +59,7 @@ def test_update_user(client, user, token):
     assert response.json() == {
         'username': 'bob',
         'email': 'bob@example.com',
-        'id': 6,
+        'id': user.id,
     }
 
 
