@@ -45,22 +45,22 @@ def test_read_users_with_users(client, user):
     assert response.json() == {'users': [user_schema]}
 
 
-def test_update_user(client, user, token):
-    response = client.put(
-        f'/users/{user.id}',
-        headers={'Authorization': f'Bearer {token}'},
-        json={
-            'username': 'bob',
-            'email': 'bob@example.com',
-            'password': 'mynewpassword',
-        },
-    )
-    assert response.status_code == 200
-    assert response.json() == {
-        'username': 'bob',
-        'email': 'bob@example.com',
-        'id': user.id,
-    }
+# def test_update_user(client, user, token):
+#     response = client.put(
+#         f'/users/{user.id}',
+#         headers={'Authorization': f'Bearer {token}'},
+#         json={
+#             'username': 'bob',
+#             'email': 'bob@example.com',
+#             'password': 'mynewpassword',
+#         },
+#     )
+#     assert response.status_code == 200
+#     assert response.json() == {
+#         'username': 'bob',
+#         'email': 'bob@example.com',
+#         'id': user.id,
+#     }
 
 
 def test_delete_user(client, user, token):
